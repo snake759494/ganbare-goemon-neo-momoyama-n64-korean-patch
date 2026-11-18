@@ -6,8 +6,8 @@ N64 일본판 **がんばれゴエモン ～ネオ桃山幕府のおどり～ (�
 ## 적용 방법
 1. 아래 해시와 일치하는 **원본 `.z64`** (빅 엔디언, No-Intro 형식)를 준비합니다. (`.n64`·`.v64` 바이트 순서 파일은 먼저 `.z64`로 바꿔야 합니다.)
    - PowerShell: `Get-FileHash -Algorithm MD5 -LiteralPath '.$J'`
-2. xdeltaUI 같은 도구로 원본 `.z64` 에 `Ganbare_Goemon_Neo_Momoyama_KO_v1.0.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ROM, Output File = 새 파일명)
-   - 명령줄: `xdelta3 -d -s "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Japan).z64" Ganbare_Goemon_Neo_Momoyama_KO_v1.0.xdelta "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Korean).z64"`
+2. xdeltaUI 같은 도구로 원본 `.z64` 에 `Ganbare_Goemon_Neo_Momoyama_KO_v1.1.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ROM, Output File = 새 파일명)
+   - 명령줄: `xdelta3 -d -s "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Japan).z64" Ganbare_Goemon_Neo_Momoyama_KO_v1.1.xdelta "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Korean).z64"`
 3. 만들어진 `.z64` 를 Project64·Mupen64Plus(BizHawk 등) N64 에뮬레이터나 플래시 카트리지에서 실행합니다.
 
 | 항목 | 값 |
@@ -15,13 +15,14 @@ N64 일본판 **がんばれゴエモン ～ネオ桃山幕府のおどり～ (�
 | 원본 ROM 크기 | 16,777,216 바이트 |
 | 원본 ROM MD5 | `9b929e0bf8d63e62820f2fa6257cc5cf` |
 | 원본 ROM SHA-256 | `a1d288fa352ef185e0499a63b64dfc937c460da15a10456f180ee71298277413` |
-| xdelta SHA-256 | `4de8b8b5cd8cdfaf5010bc059c180224687754be4118d8a30bc98e171572ef31` |
+| xdelta SHA-256 | `1a4e9b44c70760e4f87cb139315e984aa7311b4c493b1e2153092d9bb94c8527` |
 | 결과 ROM 크기 | 16,777,216 바이트 |
-| 결과 ROM SHA-256 | `0dd7ebb9c5401267c291bab88606741ea0478943f247753906b1937115fc394e` |
+| 결과 ROM SHA-256 | `22f833fc7f27d0d75e6439d8035a503153277786aefae381f04f0f1fdc1e4d60` |
 
 ## 주의
 - 원본에서 만든 **상태저장(세이브 스테이트)** 은 불러오지 마세요. 글꼴 배치가 달라 글자가 깨집니다. 컨트롤러 팩 세이브는 그대로 쓸 수 있습니다.
-- 헤더 체크섬(CRC)은 다시 계산해 두었습니다.
+- 헤더 체크섬(CRC)은 원본과 같은 값(`832C168B-56A2CDAE`)이 되도록 보정해 두었습니다. Project64 등 게임 설정 DB를 쓰는 에뮬레이터가 한글판을 원본 게임으로 인식해 원본과 같은 설정으로 실행합니다(v1.1).
+- 세이브는 **컨트롤러 팩(메모리 팩)** 에 합니다. 에뮬레이터 입력 설정에서 1P 컨트롤러에 Memory Pak(메모리 팩)을 꽂아 두세요.
 - xdelta는 압축하지 않은 형식(`-0`)입니다(약 230KB).
 
 ## 한글화 내용
@@ -36,7 +37,7 @@ N64 일본판 **がんばれゴエモン ～ネオ桃山幕府のおどり～ (�
 - 음성, KONAMI 로고, 영문 표기, 마을 배경 그림 속 간판·서예 글씨(「御宿」「火の用心」 등 배경 그림)
 
 ## 검증 범위
-BizHawk(N64)에서 오프닝, 고에몽의 집, 첫 마을과 주민 대사, 잡화점 메뉴와 구매 대사, 일시정지 화면의 기술·아이템 칸을 확인했습니다. 모든 텍스트 파일을 전수 검사해 번역이 빠진 줄이 없는 것을 확인했습니다. 스테이지(오에도 성) 이후와 전체 플레이 검증은 하지 않았습니다. 문제를 발견하면 Issues에 알려 주세요.
+BizHawk(N64)에서 오프닝, 고에몽의 집, 첫 마을과 주민 대사, 잡화점 메뉴와 구매 대사, 일시정지 화면의 기술·아이템 칸을 확인했습니다. 모든 텍스트 파일을 전수 검사해 번역이 빠진 줄이 없는 것을 확인했습니다. 스테이지(오에도 성) 이후와 전체 플레이 검증은 하지 않았습니다. v1.1에서는 Project64 3.0.1이 한글판을 원본 게임(「Ganbare Goemon - Neo Momoyama Bakufu no Odori (J)」)으로 인식하는 것과, BizHawk에서 부팅·타이틀 화면을 다시 확인했습니다. v1.0과 달라진 바이트는 헤더 8바이트와 보정 블록 44바이트뿐입니다. 문제를 발견하면 Issues에 알려 주세요.
 
 ## 문서
 - [CHANGELOG.md](CHANGELOG.md) — 변경 기록

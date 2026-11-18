@@ -312,7 +312,7 @@ def main():
         o = ram2rom(addr)
         out[o:o + 4] = w.to_bytes(4, 'big')
     import cache
-    cache.apply(out, put, font_rom, banks)
+    hlen = cache.apply(out, put, font_rom, banks)
     # 일시정지 화면 닌자 기술 칸: 코드 0x110(術)을 14x8로 그림 → '기술'
     import fontgen as _fg
     gl = _fg.render_label('기술')
@@ -339,7 +339,12 @@ def main():
         old = int.from_bytes(out[o:o + 4], 'big')
         out[o:o + 4] = ((old & 0xff000000) | off).to_bytes(4, 'big')
     # 원본 폰트 영역은 그대로 둠
-    crc.fix(out)
+    # 헤더 CRC를 원본과 같게(에뮬레이터 게임 DB 인식용): 헬퍼 코드 뒤 빈 공간에 보정 워드
+    import forge
+    tgt = (int.from_bytes(rom[0x10:0x14], 'big'), int.from_bytes(rom[0x14:0x18], 'big'))
+    forge.forge(out, cache.ram2rom(cache.HELPER) + ((hlen + 3) & ~3), tgt)
+    out[0x10:0x18] = rom[0x10:0x18]
+    assert crc.crc(out) == tgt
     open(OUT, 'wb').write(out)
     json.dump({'chars': ''.join(chars), 'font_rom': font_rom, 'files_end': fend}, open(WORK + 'build_info.json', 'w', encoding='utf-8'), ensure_ascii=False)
     for l in log:
