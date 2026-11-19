@@ -2,8 +2,8 @@ import nisi
 from unicorn import *
 from unicorn.mips_const import *
 ROMD=open(nisi.ROM,'rb').read()
-RAM=open('D:/n64/힘내라고에몽-네오모모야마막부의춤/work/ram.bin','rb').read()
 def mk():
+    RAM=open('D:/n64/힘내라고에몽-네오모모야마막부의춤/work/ram.bin','rb').read()
     mu=Uc(UC_ARCH_MIPS,UC_MODE_MIPS32+UC_MODE_BIG_ENDIAN)
     mu.mem_map(0,0x800000)
     mu.mem_write(0,RAM)

@@ -1,11 +1,11 @@
 {
- "version": "v1.1",
- "asset": "Ganbare_Goemon_Neo_Momoyama_KO_v1.1.xdelta",
- "asset_size": 238723,
- "asset_sha256": "1a4e9b44c70760e4f87cb139315e984aa7311b4c493b1e2153092d9bb94c8527",
+ "version": "v1.2",
+ "asset": "Ganbare_Goemon_Neo_Momoyama_KO_v1.2.xdelta",
+ "asset_size": 238714,
+ "asset_sha256": "ede328959620d59caa252744bff9c72f0bfdb7fe5bad19ca5558086a466eb5e4",
  "source_rom_size": 16777216,
  "source_rom_md5": "9b929e0bf8d63e62820f2fa6257cc5cf",
  "source_rom_sha256": "a1d288fa352ef185e0499a63b64dfc937c460da15a10456f180ee71298277413",
  "result_rom_size": 16777216,
- "result_rom_sha256": "22f833fc7f27d0d75e6439d8035a503153277786aefae381f04f0f1fdc1e4d60"
+ "result_rom_sha256": "81e2ad04513a57f1ae95bd1d77319f2adc719192db8d142824735895b48eb5a9"
 }

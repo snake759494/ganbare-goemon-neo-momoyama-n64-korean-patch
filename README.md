@@ -6,8 +6,8 @@ N64 일본판 **がんばれゴエモン ～ネオ桃山幕府のおどり～ (�
 ## 적용 방법
 1. 아래 해시와 일치하는 **원본 `.z64`** (빅 엔디언, No-Intro 형식)를 준비합니다. (`.n64`·`.v64` 바이트 순서 파일은 먼저 `.z64`로 바꿔야 합니다.)
    - PowerShell: `Get-FileHash -Algorithm MD5 -LiteralPath '.$J'`
-2. xdeltaUI 같은 도구로 원본 `.z64` 에 `Ganbare_Goemon_Neo_Momoyama_KO_v1.1.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ROM, Output File = 새 파일명)
-   - 명령줄: `xdelta3 -d -s "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Japan).z64" Ganbare_Goemon_Neo_Momoyama_KO_v1.1.xdelta "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Korean).z64"`
+2. xdeltaUI 같은 도구로 원본 `.z64` 에 `Ganbare_Goemon_Neo_Momoyama_KO_v1.2.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ROM, Output File = 새 파일명)
+   - 명령줄: `xdelta3 -d -s "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Japan).z64" Ganbare_Goemon_Neo_Momoyama_KO_v1.2.xdelta "Ganbare Goemon - Neo Momoyama Bakufu no Odori (Korean).z64"`
 3. 만들어진 `.z64` 를 Project64·Mupen64Plus(BizHawk 등) N64 에뮬레이터나 플래시 카트리지에서 실행합니다.
 
 | 항목 | 값 |
@@ -15,9 +15,9 @@ N64 일본판 **がんばれゴエモン ～ネオ桃山幕府のおどり～ (�
 | 원본 ROM 크기 | 16,777,216 바이트 |
 | 원본 ROM MD5 | `9b929e0bf8d63e62820f2fa6257cc5cf` |
 | 원본 ROM SHA-256 | `a1d288fa352ef185e0499a63b64dfc937c460da15a10456f180ee71298277413` |
-| xdelta SHA-256 | `1a4e9b44c70760e4f87cb139315e984aa7311b4c493b1e2153092d9bb94c8527` |
+| xdelta SHA-256 | `ede328959620d59caa252744bff9c72f0bfdb7fe5bad19ca5558086a466eb5e4` |
 | 결과 ROM 크기 | 16,777,216 바이트 |
-| 결과 ROM SHA-256 | `22f833fc7f27d0d75e6439d8035a503153277786aefae381f04f0f1fdc1e4d60` |
+| 결과 ROM SHA-256 | `81e2ad04513a57f1ae95bd1d77319f2adc719192db8d142824735895b48eb5a9` |
 
 ## 주의
 - 원본에서 만든 **상태저장(세이브 스테이트)** 은 불러오지 마세요. 글꼴 배치가 달라 글자가 깨집니다. 컨트롤러 팩 세이브는 그대로 쓸 수 있습니다.
